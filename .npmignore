@@ -1,0 +1,10 @@
+/.env
+/package-lock.json
+/.nyc_output
+/node_modules/
+/.idea/
+/coverage/
+/test.js
+/mocha.opts
+/.travis.yml
+/.nycrc

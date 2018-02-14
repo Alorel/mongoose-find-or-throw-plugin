@@ -1,0 +1,7 @@
+--throw-deprecation
+-t 10000
+--exit
+--check-leaks
+--full-trace
+--retries 3
+test.js

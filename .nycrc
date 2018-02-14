@@ -1,0 +1,12 @@
+{
+  "reporter": [
+    "text",
+    "text-summary",
+    "html",
+    "lcov"
+  ],
+  "extension": [
+    ".js"
+  ],
+  "instrument": true
+}
