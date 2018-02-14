@@ -27,6 +27,7 @@ describe('MongooseFindOrThrow plugin', () => {
         .catch(e => {
           expect(e.status).to.eq(404);
           expect(e.message).to.eq('Not found');
+          expect(e.name).to.eq('MongooseDocumentNotFoundError');
           done();
         })
         .catch(done);

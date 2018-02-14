@@ -1,2 +1,45 @@
-language: generic
-script: true
+language: node_js
+group: travis_latest
+sudo: false
+
+node_js:
+  - &latestTested 9
+  - 8
+  - 6
+
+services:
+  - mongodb
+
+cache:
+  directories:
+    - node_modules
+
+before_cache: rm -rf node_modules/.cache
+
+stages:
+  - Test
+  - name: &deployStage Deploy
+    if: tag IS present
+
+after_success: cat ./coverage/lcov.info | coveralls
+
+jobs:
+  include:
+    - stage: *deployStage
+      node_js: *latestTested
+      env:
+        - DEPLOY=1
+      cache: false
+      install: true
+      script: true
+      after_success: true
+      before_deploy:
+        - node ./set-badges-branch.js
+      deploy:
+        - provider: npm
+          on:
+            tags: true
+          skip_cleanup: true
+          email: a.molcanovas@gmail.com
+          api_key:
+            secure: "rGXWbQxBXhctzEEF2qYsdfEOsHtGEfeP55geZ2tqWMk/Wyf4P2MKNHkfkyp0NA3uoiDvTuEtzPEiJ8acHSjNpmj+IDjaMpdowUrMRaCMAP0LibTFa83eMEvKrtKPRb5znISTGSiFxYds29sXjLT2EiPgKd+EzkHdxgmRjGJSoe+KwjCVvkarG05E6irr36gM4PsSFMwzUhZsASLDC+lAyhoX4lnJRJx5s04hfl/FGNU/T5zGOJ2ROGLIgP0RoQ4dKi0L/Z+FY4DftOGf93f9lWMIakTWujJ9RHbs87PkpaTUQuZeSe7+0Dp5dkZ1TIsWM8bC5gG4oyerMka84kx3PvGMSLfuwkbw4RQhO1s+ZkN5JLvjFxo8S3yTn1U3JHjdzgKn21vLyB/eKAlUaXXOpau+loN/Q4mnhJ6dY82wmRbgxf2fQ8H6ArTLPd2Kw6KHySGSD5b4C3/q/9h1gHAYYgBiouWuFOd4OdCBG3fg2SuC/X0HV8AZ/RiCHiKaG/2rzCtYKXhr35kHFuM2hRpo7TG6eiuV5M1mePJBuCUbs/biZibwMHy20DZ7GXF+Ka/HMPxSDPSCC0fthmpOB5VOk9ET/5pfdHHGjApd41VgA4IjfsjIls4ofMQvwhn0L3s7j3s2PYpdPOnfc5r5HfM1kc33DZTfuiY8w323fmIIxYM="

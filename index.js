@@ -15,6 +15,7 @@ try {
 function then(response) {
   if (isEmpty(response)) {
     const err = new Error('Not found');
+    err.name = 'MongooseDocumentNotFoundError';
     err.status = 404;
     throw err;
   }
@@ -32,7 +33,7 @@ Query.throwIfEmpty = function () {
       throw new Error('Use promises after calling throwIfEmpty()');
     }
 
-    return applied.then(then)
+    return applied.then(then);
   };
 
   return this;

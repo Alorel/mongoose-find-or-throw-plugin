@@ -8,3 +8,4 @@
 /mocha.opts
 /.travis.yml
 /.nycrc
+/set-badges-branch.js
