@@ -30,6 +30,7 @@ jobs:
       env:
         - DEPLOY=1
       cache: false
+      services: true
       install: true
       script: true
       after_success: true
