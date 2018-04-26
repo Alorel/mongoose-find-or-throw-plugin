@@ -3,9 +3,9 @@ group: travis_latest
 sudo: false
 
 node_js:
-  - &latestTested 9
-  - 8
-  - 6
+  - stable
+  - lts/carbon
+  - lts/boton
 
 services:
   - mongodb
@@ -26,7 +26,7 @@ after_success: cat ./coverage/lcov.info | coveralls
 jobs:
   include:
     - stage: *deployStage
-      node_js: *latestTested
+      node_js: stable
       env:
         - DEPLOY=1
       cache: false
