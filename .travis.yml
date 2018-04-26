@@ -5,7 +5,7 @@ sudo: false
 node_js:
   - stable
   - lts/carbon
-  - lts/boton
+  - lts/boron
 
 services:
   - mongodb
