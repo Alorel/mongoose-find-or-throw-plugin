@@ -11,9 +11,10 @@ describe('MongooseFindOrThrow plugin', () => {
 
   before('Connect', () => {
     const host = process.env.MONGODB_HOST || '127.0.0.1';
+    const port = process.env.MONGO_PORT || 27017;
     mongoose.Promise = Promise;
 
-    return mongoose.connect(`mongodb://${host}/${v4()}`);
+    return mongoose.connect(`mongodb://${host}:${port}/${v4()}`);
   });
 
   before('Define model', () => {
