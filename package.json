@@ -1,10 +1,10 @@
 {
   "name": "mongoose-throw-if-not-found-plugin",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Throw if a document cannot be found",
   "main": "index.js",
   "engines": {
-    "node": ">=6.0"
+    "node": ">=8.0"
   },
   "scripts": {
     "test": "rimraf dist coverage && env-cmd ./.env nyc mocha --opts ./mocha.opts",

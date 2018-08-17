@@ -5,7 +5,6 @@ sudo: false
 node_js:
   - stable
   - lts/carbon
-  - lts/boron
 
 services:
   - mongodb
@@ -30,10 +29,10 @@ jobs:
       env:
         - DEPLOY=1
       cache: false
-      services: true
-      install: true
-      script: true
-      after_success: true
+      services: []
+      install: []
+      script: []
+      after_success: []
       before_deploy:
         - node ./set-badges-branch.js
       deploy:
@@ -43,4 +42,4 @@ jobs:
           skip_cleanup: true
           email: a.molcanovas@gmail.com
           api_key:
-            secure: "rGXWbQxBXhctzEEF2qYsdfEOsHtGEfeP55geZ2tqWMk/Wyf4P2MKNHkfkyp0NA3uoiDvTuEtzPEiJ8acHSjNpmj+IDjaMpdowUrMRaCMAP0LibTFa83eMEvKrtKPRb5znISTGSiFxYds29sXjLT2EiPgKd+EzkHdxgmRjGJSoe+KwjCVvkarG05E6irr36gM4PsSFMwzUhZsASLDC+lAyhoX4lnJRJx5s04hfl/FGNU/T5zGOJ2ROGLIgP0RoQ4dKi0L/Z+FY4DftOGf93f9lWMIakTWujJ9RHbs87PkpaTUQuZeSe7+0Dp5dkZ1TIsWM8bC5gG4oyerMka84kx3PvGMSLfuwkbw4RQhO1s+ZkN5JLvjFxo8S3yTn1U3JHjdzgKn21vLyB/eKAlUaXXOpau+loN/Q4mnhJ6dY82wmRbgxf2fQ8H6ArTLPd2Kw6KHySGSD5b4C3/q/9h1gHAYYgBiouWuFOd4OdCBG3fg2SuC/X0HV8AZ/RiCHiKaG/2rzCtYKXhr35kHFuM2hRpo7TG6eiuV5M1mePJBuCUbs/biZibwMHy20DZ7GXF+Ka/HMPxSDPSCC0fthmpOB5VOk9ET/5pfdHHGjApd41VgA4IjfsjIls4ofMQvwhn0L3s7j3s2PYpdPOnfc5r5HfM1kc33DZTfuiY8w323fmIIxYM="
+            secure: "WT+szT01JIPfjJsY1We2bLGeDA2QnHUY8OfJR8SzVXIDJqvxDwoyX5C+dFQtoqgRgv97ZEZctGGptwBJiUdc0XjEhMGUrouAZLAsM7dUuz21nn7TyMEmz/Rg8m3xPwPDpxQEbiSqtJYDulqD367tMrCq++ALyeF8x8JxZkTvaHSbX4u+DsweSga1pEm0SV5MQN7zh0PINQX0f57cZnP01LVcTaZ5ZhNjVbR2RTs+zcpzPhnJ5Yvowrkk+ITo+oj+cRploe73mrB+EAzWdOgoDSYZvmEWRvtqGxetAgSYscwvR2eCAaUQbdjSil9ljL6uOwVpRAZ367mqDwpCVxwDPew6FXYBPqh1xgEQA8675cst00MCwxvZuOpAfPKxO2V58Canl90tNzipNHHy8PyYj9fwEcy1lxQ6anwXAovEWp5JxF8PYUZmlEwfxoZq4abqf/FPFd6YzemZyiUjm2YSHALWCMvMtsXswuTpTb92bUayiZcrS7F54jJGG7VpOgNg48ijcIjA8UQYaSdbVxpyvaahQtHS9nIk++JgUq5MYF9yDFay/KZwdP90k3TlzuRmquk3WiDJ5KgftJs7IY8nW8+UJ48pS5AlOqBMN3UXk/fbL8wfsR0kk+lY7VQM5AFdJUlOBpFXwlQzomuCA/nTXrhcaqndt/GYJve1QSbaOh8="
